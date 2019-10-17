@@ -113,7 +113,6 @@ int main ( int argc, char** argv )
 
 					putpixel(screen, x-(x%10), y-(y%10)); /// los pixeles en la pantalla
 				    SDL_UpdateRect(screen, x-(x%10), y-(y%10), 10, 10); // acutalizar la pantalla (si no se actualiza no se ven los cambios)
-
                     x = (int) x/10;
                     y = (int) y/10;
                     mapa[y][x] = 1;
