@@ -36,3 +36,4 @@ obj
 *.depend
 *.layout
 archivo_matriz.dat
+bin/Debug/stdout.txt
