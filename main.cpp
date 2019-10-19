@@ -83,7 +83,21 @@ int main ( int argc, char** argv )
     atexit(SDL_Quit);
 
     // create a new window
-    SDL_Surface* screen = SDL_SetVideoMode(640, 480, 16, SDL_HWSURFACE|SDL_DOUBLEBUF);
+    SDL_Surface* screen = SDL_SetVideoMode(640+200, 480, 16, SDL_HWSURFACE|SDL_DOUBLEBUF);
+
+    SDL_Surface* bmp = SDL_LoadBMP("imagenes/botones.bmp");
+
+    // centre the bitmap on screen
+    SDL_Rect dstrect;
+    
+    dstrect.x = screen->w - bmp->w;
+    /// dstrect.y = (screen->h - bmp->h) / 2;
+    SDL_BlitSurface(bmp, 0, screen, &dstrect);
+
+    /// actualizar pantalla
+    SDL_Flip(screen);
+
+
 
     // program main loop
     bool done = false;
