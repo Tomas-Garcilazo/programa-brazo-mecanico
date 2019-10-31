@@ -13,9 +13,57 @@
 
 using namespace std;
 
+class Lienzo{
+    private:
+        int mapa[49][65];
+    public:
+        void guardar_mapa();
+        void mostrar_mapa();
+        void marcar_mapa(int y, int x){
+            mapa[y][x] = 1;
+        }
+        void Poner_Mapa_0();
+        int* get_mapa(){
+            return (int *) mapa;
+        }
+};
+
+class Dibujo{
+    private:
+        int *lista_de_trazos; /// esto va a ser un vector que se va a modificar con malloc
+        Lienzo *obj_lienzo;
+    public:
+        void dibujar_nuevo();
+        void dibujar();
+        void borrar();
+        void putpixel(SDL_Surface*, int,int);
+};
+
+class Plantilla{
+    private:
+        int mapa[10][10];
+    public:
+        void cargar_plantilla();
+        void poner_en_lienzo(Lienzo);
+};
+
+class Boton{
+    private:
+        char tecla;
+    public:
+        cargarBoton();
+};
+
+class Ventana{
+    private:
+
+    public:
+
+
+};
 
 // esta es la funcion que dibuja en la pantalla, por ahora ignorala
-void putpixel(SDL_Surface *surface, int x, int y){
+void Dibujo::putpixel(SDL_Surface *surface, int x, int y){
 	Uint32 pixel;
 	pixel = SDL_MapRGB(surface->format, 0xff, 0xff, 0x00); // esto crea una "plantilla" de un pixel amarillo
 
@@ -56,7 +104,7 @@ void putpixel(SDL_Surface *surface, int x, int y){
 	}
 }
 
-void mostrar_mapa(int mapa[49][65]){
+void Lienzo::mostrar_mapa(){
 	for (int i = 0; i < 49; i++){
         for (int j=0;j<65;j++){
             if (mapa[i][j] ==0)
@@ -69,14 +117,27 @@ void mostrar_mapa(int mapa[49][65]){
 	}
 }
 
+void Lienzo::Poner_Mapa_0(){
+
+    for (int i = 0; i < 49; i++){
+
+        for (int j=0;j<65;j++){
+
+            mapa[i][j] = 0;
+        }
+	}
+}
+
 int main ( int argc, char** argv )
 {
+    Dibujo dibujo_obj;
+    Lienzo lienzo_obj;
     const int TAM_X = 65, TAM_Y = 49;
     /// ------ NOTAS ------ ///
     /// siempre que leas "mapa" se refiere a mapa de pixeles
     /// lo mas importante es la matriz "char mapa" de abajo
     ///el archivo se crea cuando el programa SE CIERRA
-    int mapa[TAM_Y][TAM_X]={0};
+    lienzo_obj.Poner_Mapa_0();
 
     int x, y;
     bool buttonState  = false;
@@ -85,10 +146,10 @@ int main ( int argc, char** argv )
     /// cargar imagen
     SDL_Surface* bmp = SDL_LoadBMP("imagenes/botones.bmp");
 
-    // create a new window
+    /// create a new window
     SDL_Surface* screen = SDL_SetVideoMode(640+bmp->w, 480, 16, SDL_HWSURFACE|SDL_DOUBLEBUF);
 
-    // centre the bitmap on screen
+    /// centre the bitmap on screen
     SDL_Rect dstrect;
 
     dstrect.x = screen->w - bmp->w;
@@ -100,17 +161,17 @@ int main ( int argc, char** argv )
 
 
 
-    // program main loop
+    /// program main loop
     bool done = false;
     while (!done)
     {
-        // message processing loop
+        /// message processing loop
         SDL_Event event;
         while (SDL_PollEvent(&event))
         {
             switch (event.type)
             {
-                // exit if the window is closed
+                /// exit if the window is closed
             case SDL_QUIT:
                 done = true;
                 break;
@@ -126,22 +187,21 @@ int main ( int argc, char** argv )
                 SDL_GetMouseState(&x, &y);
                 if (x > -1 && x <640 && y > -1 && y <480){
 
-					putpixel(screen, x-(x%10), y-(y%10)); /// los pixeles en la pantalla
-				    SDL_UpdateRect(screen, x-(x%10), y-(y%10), 10, 10); // acutalizar la pantalla (si no se actualiza no se ven los cambios)
+                    dibujo_obj.putpixel(screen, x-(x%10), y-(y%10)); /// los pixeles en la pantalla
+				    SDL_UpdateRect(screen, x-(x%10), y-(y%10), 10, 10); /// acutalizar la pantalla (si no se actualiza no se ven los cambios)
                     x = (int) x/10;
                     y = (int) y/10;
-                    mapa[y][x] = 1;
+
+                    lienzo_obj.marcar_mapa(y, x);
                 }
             }
-            }
         }
+    }
 
-
-
-    mostrar_mapa(mapa);
+    lienzo_obj.mostrar_mapa();
     FILE *f;
     f = fopen("archivo_matriz.dat", "wb");
-    fwrite(mapa, sizeof(int)*65*49, 1, f);
+    fwrite(lienzo_obj.get_mapa(), sizeof(int)*65*49, 1, f);
 
     return 0;
 }
