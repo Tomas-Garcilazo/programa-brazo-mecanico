@@ -13,6 +13,7 @@
 
 using namespace std;
 
+
 class Lienzo{
     private:
         int mapa[49][65];
@@ -66,6 +67,8 @@ class Ventana{
 void Dibujo::putpixel(SDL_Surface *surface, int x, int y){
 	Uint32 pixel;
 	pixel = SDL_MapRGB(surface->format, 0xff, 0xff, 0x00); // esto crea una "plantilla" de un pixel amarillo
+
+    bool clic_soltado = false;
 
     int bpp = surface->format->BytesPerPixel;
     Uint8 *p;
@@ -127,17 +130,24 @@ void Lienzo::Poner_Mapa_0(){
         }
 	}
 }
-
+#include "dibujar_formas.h"
 int main ( int argc, char** argv )
 {
     Dibujo dibujo_obj;
     Lienzo lienzo_obj;
+    int estado_clic = 0;
+
+    int const cuadrado= 0;
+    int const libre= 1;
+    int modoDeDibujo = libre;
+    int contador=0;
     const int TAM_X = 65, TAM_Y = 49;
     /// ------ NOTAS ------ ///
     /// siempre que leas "mapa" se refiere a mapa de pixeles
     /// lo mas importante es la matriz "char mapa" de abajo
     ///el archivo se crea cuando el programa SE CIERRA
     lienzo_obj.Poner_Mapa_0();
+
 
     int x, y;
     bool buttonState  = false;
@@ -165,38 +175,83 @@ int main ( int argc, char** argv )
     bool done = false;
     while (!done)
     {
+
         /// message processing loop
         SDL_Event event;
         while (SDL_PollEvent(&event))
         {
-            switch (event.type)
-            {
-                /// exit if the window is closed
-            case SDL_QUIT:
-                done = true;
-                break;
 
-            case SDL_MOUSEBUTTONDOWN:
-                buttonState = true;
-                break;
-            case SDL_MOUSEBUTTONUP:
-                buttonState = false;
+           switch (event.type)
+                {
+                    /// exit if the window is closed
+                case SDL_QUIT:
+                    done = true;
+                    break;
 
-            }
-            if(buttonState){
-                SDL_GetMouseState(&x, &y);
-                if (x > -1 && x <640 && y > -1 && y <480){
+                case SDL_MOUSEBUTTONDOWN:
+                    buttonState = true;
+                    estado_clic=1;
+                    contador++;
 
-                    dibujo_obj.putpixel(screen, x-(x%10), y-(y%10)); /// los pixeles en la pantalla
-				    SDL_UpdateRect(screen, x-(x%10), y-(y%10), 10, 10); /// acutalizar la pantalla (si no se actualiza no se ven los cambios)
-                    x = (int) x/10;
-                    y = (int) y/10;
+                    break;
+                case SDL_MOUSEBUTTONUP:
+                    buttonState = false;
+                    estado_clic=2;
+                    break;
+                case SDL_KEYDOWN:
+                    switch( event.key.keysym.sym ){
+                    case SDLK_c:
+                        modoDeDibujo=cuadrado;
+                        contador=0;
+                        break;
+                    case SDLK_d:
+                        cout<<"D";
+                        break;
+                    default:
+                        break;
+                    }
+                    break;
 
-                    lienzo_obj.marcar_mapa(y, x);
                 }
-            }
-        }
-    }
+
+                        switch(modoDeDibujo){
+                            case libre:
+                                if(buttonState){
+
+                                SDL_GetMouseState(&x, &y);
+                                if (x > -1 && x <640 && y > -1 && y <480){
+
+                                    dibujo_obj.putpixel(screen, x-(x%10), y-(y%10)); /// los pixeles en la pantalla
+                                    SDL_UpdateRect(screen, x-(x%10), y-(y%10), 10, 10); /// acutalizar la pantalla (si no se actualiza no se ven los cambios)
+                                    x = (int) x/10;
+                                    y = (int) y/10;
+                                    lienzo_obj.marcar_mapa(y, x);
+                                }
+                                }
+                                break;
+
+                            case cuadrado:
+                                if(estado_clic==1){
+                                SDL_GetMouseState(&x, &y);
+                                }
+                                if (estado_clic == 2){
+                                    int x_F;
+                                    int y_F;
+                                    SDL_GetMouseState(&x_F, &y_F);
+                                    dibujar_cuadrado(x, y, x_F, y_F, dibujo_obj, screen);
+                                }
+                                break;
+                            }
+
+                        }
+                        estado_clic = 0;
+                }
+
+
+
+
+
+
 
     lienzo_obj.mostrar_mapa();
     FILE *f;
