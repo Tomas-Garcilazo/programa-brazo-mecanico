@@ -27,13 +27,13 @@ for(int i=maxX;i>minX;i--){
     y=maxY;
     dibujo_obj.putpixel(screen, x-(x%10), y-(y%10));
     SDL_UpdateRect(screen, x-(x%10), y-(y%10), 10, 10);
-    lienzo_obj.marcar_mapa((int) y/10, (int) x/10);
+    lienzo_obj.marcar_mapa((int) y/10, (int) x/10, 1);
 
     x= i;
     y= minY;
     dibujo_obj.putpixel(screen, x-(x%10), y-(y%10));
     SDL_UpdateRect(screen, x-(x%10), y-(y%10), 10, 10);
-    lienzo_obj.marcar_mapa((int) y/10, (int) x/10);
+    lienzo_obj.marcar_mapa((int) y/10, (int) x/10, 1);
 }
 for(int i=maxY;i>minY;i--){
 
@@ -41,13 +41,13 @@ for(int i=maxY;i>minY;i--){
     y=i;
     dibujo_obj.putpixel(screen, x-(x%10), y-(y%10));
     SDL_UpdateRect(screen, x-(x%10), y-(y%10), 10, 10);
-    lienzo_obj.marcar_mapa((int) y/10, (int) x/10);
+    lienzo_obj.marcar_mapa((int) y/10, (int) x/10, 1);
 
     x= minX;
     y=i;
     dibujo_obj.putpixel(screen, x-(x%10), y-(y%10));
     SDL_UpdateRect(screen, x-(x%10), y-(y%10), 10, 10);
-    lienzo_obj.marcar_mapa((int) y/10, (int) x/10);
+    lienzo_obj.marcar_mapa((int) y/10, (int) x/10, 1);
 }}
 
 void dibujar_linea(int x1, int y1, int x2, int y2, Dibujo dibujo_obj, SDL_Surface* screen, Lienzo lienzo_obj){
@@ -82,7 +82,7 @@ if(diferenciaX>diferenciaY)
         y=maxY;
         dibujo_obj.putpixel(screen, x-(x%10), y-(y%10));
         SDL_UpdateRect(screen, x-(x%10), y-(y%10), 10, 10);
-        lienzo_obj.marcar_mapa((int) y/10, (int) x/10);
+        lienzo_obj.marcar_mapa((int) y/10, (int) x/10, 1);
     }
 }
 else
@@ -92,7 +92,7 @@ else
         y=i;
         dibujo_obj.putpixel(screen, x-(x%10), y-(y%10));
         SDL_UpdateRect(screen, x-(x%10), y-(y%10), 10, 10);
-        lienzo_obj.marcar_mapa((int) y/10, (int) x/10);
+        lienzo_obj.marcar_mapa((int) y/10, (int) x/10, 1);
     }
 }
 
