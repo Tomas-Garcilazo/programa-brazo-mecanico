@@ -118,7 +118,7 @@ int main ( int argc, char** argv )
                                         SDL_UpdateRect(screen, x-(x%10), y-(y%10), 10, 10); /// acutalizar la pantalla (si no se actualiza no se ven los cambios)
                                         x = (int) x/10;
                                         y = (int) y/10;
-                                        lienzo_obj.marcar_mapa(y, x);
+                                        lienzo_obj.marcar_mapa(y, x, 1);
                                     }
                                 }
                                 break;
@@ -136,7 +136,7 @@ int main ( int argc, char** argv )
                                         SDL_UpdateRect(screen, x-(x%10), y-(y%10), 10, 10); /// acutalizar la pantalla (si no se actualiza no se ven los cambios)
                                         x = (int) x/10;
                                         y = (int) y/10;
-                                        lienzo_obj.marcar_mapa(y, x);
+                                        lienzo_obj.marcar_mapa(y, x, 0);
                                     }
                                 }
                                 break;

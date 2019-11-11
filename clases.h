@@ -8,9 +8,9 @@ private:
 public:
     void guardar_mapa();
     void mostrar_mapa();
-    void marcar_mapa(int y, int x)
+    void marcar_mapa(int y, int x, int valor)
     {
-        mapa[y][x] = 1;
+        mapa[y][x] = valor;
     }
     void Poner_Mapa_0();
     int* get_mapa()
