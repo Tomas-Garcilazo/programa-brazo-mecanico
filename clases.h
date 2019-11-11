@@ -17,6 +17,10 @@ public:
     {
         return (int *) mapa;
     }
+    int get_valor(int y, int x)
+    {
+        return mapa[y][x];
+    }
 };
 
 class Dibujo
@@ -59,8 +63,6 @@ void Dibujo::putpixel(SDL_Surface *surface, int x, int y)
 {
     Uint32 pixel;
     pixel = SDL_MapRGB(surface->format, 0xff, 0xff, 0x00); // esto crea una "plantilla" de un pixel amarillo
-
-    bool clic_soltado = false;
 
     int bpp = surface->format->BytesPerPixel;
     Uint8 *p;
