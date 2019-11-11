@@ -37,3 +37,5 @@ obj
 *.layout
 archivo_matriz.dat
 bin/Debug/stdout.txt
+archivo_matriz.dat
+Proyecto_SDL.layout
