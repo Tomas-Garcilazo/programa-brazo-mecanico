@@ -137,8 +137,9 @@ int main ( int argc, char** argv )
     Lienzo lienzo_obj;
     int estado_clic = 0;
 
-    int const cuadrado= 0;
-    int const libre= 1;
+    int const cuadrado = 0;
+    int const linea = 2;
+    int const libre = 1;
     int modoDeDibujo = libre;
     int contador=0;
     const int TAM_X = 65, TAM_Y = 49;
@@ -204,8 +205,11 @@ int main ( int argc, char** argv )
                         modoDeDibujo=cuadrado;
                         contador=0;
                         break;
+                    case SDLK_l:
+                        modoDeDibujo=libre;
+                        break;
                     case SDLK_d:
-                        cout<<"D";
+                        modoDeDibujo=linea;
                         break;
                     default:
                         break;
@@ -241,17 +245,28 @@ int main ( int argc, char** argv )
                                     dibujar_cuadrado(x, y, x_F, y_F, dibujo_obj, screen);
                                 }
                                 break;
+
+                            case linea:
+                                int x_F;
+                                int y_F;
+                                if(estado_clic==1)
+                                {
+                                    SDL_GetMouseState(&x,&y);
+                                }
+                                if(estado_clic==2)
+                                {
+                                    SDL_GetMouseState(&x_F, &y_F);
+                                    dibujar_linea(x,y, x_F, y_F, dibujo_obj, screen);
+
+                                }
+                                break;
                             }
+
 
                         }
                         estado_clic = 0;
+
                 }
-
-
-
-
-
-
 
     lienzo_obj.mostrar_mapa();
     FILE *f;
