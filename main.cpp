@@ -24,8 +24,9 @@ int main ( int argc, char** argv )
     int estado_clic = 0;
 
     int const cuadrado = 0;
-    int const linea = 2;
     int const libre = 1;
+    int const linea = 2;
+    int const borrar_libre = 3;
     int modoDeDibujo = libre;
     int contador=0;
     const int TAM_X = 65, TAM_Y = 49;
@@ -97,6 +98,9 @@ int main ( int argc, char** argv )
                     case SDLK_d:
                         modoDeDibujo=linea;
                         break;
+                    case SDLK_b:
+                        modoDeDibujo=borrar_libre;
+                        break;
                     default:
                         break;
                     }
@@ -107,16 +111,32 @@ int main ( int argc, char** argv )
                         switch(modoDeDibujo){
                             case libre:
                                 if(buttonState){
-
-                                SDL_GetMouseState(&x, &y);
-                                if (x > -1 && x <640 && y > -1 && y <480){
-
-                                    dibujo_obj.putpixel(screen, x-(x%10), y-(y%10)); /// los pixeles en la pantalla
-                                    SDL_UpdateRect(screen, x-(x%10), y-(y%10), 10, 10); /// acutalizar la pantalla (si no se actualiza no se ven los cambios)
-                                    x = (int) x/10;
-                                    y = (int) y/10;
-                                    lienzo_obj.marcar_mapa(y, x);
+                                    SDL_GetMouseState(&x, &y);
+                                    if (x > -1 && x <640 && y > -1 && y <480){
+                                        dibujo_obj.putpixel(screen, x-(x%10), y-(y%10)); /// los pixeles en la pantalla
+                                        SDL_UpdateRect(screen, x-(x%10), y-(y%10), 10, 10); /// acutalizar la pantalla (si no se actualiza no se ven los cambios)
+                                        x = (int) x/10;
+                                        y = (int) y/10;
+                                        lienzo_obj.marcar_mapa(y, x);
+                                    }
                                 }
+                                break;
+
+                            case borrar_libre:
+                                if(buttonState){
+                                    SDL_GetMouseState(&x, &y);
+                                    if (x > -1 && x <640 && y > -1 && y <480){
+                                        Uint32 negro;
+                                        negro = SDL_MapRGB(screen->format, 0x00, 0x00, 0x00);
+
+                                        SDL_Rect rectangulo = {x-(x%10), y-(y%10), 10, 10};
+                                        ///dibujo_obj.putpixel(screen, x-(x%10), y-(y%10)); /// los pixeles en la pantalla
+                                        SDL_FillRect(screen, &rectangulo, negro);
+                                        SDL_UpdateRect(screen, x-(x%10), y-(y%10), 10, 10); /// acutalizar la pantalla (si no se actualiza no se ven los cambios)
+                                        x = (int) x/10;
+                                        y = (int) y/10;
+                                        lienzo_obj.marcar_mapa(y, x);
+                                    }
                                 }
                                 break;
 
