@@ -19,6 +19,7 @@ using namespace std;
 
 int main ( int argc, char** argv )
 {
+    int const screen_w = 640, screen_h = 480;
     Dibujo dibujo_obj;
     Lienzo lienzo_obj;
     int estado_clic = 0;
@@ -45,7 +46,7 @@ int main ( int argc, char** argv )
     SDL_Surface* bmp = SDL_LoadBMP("imagenes/botones.bmp");
 
     /// create a new window
-    SDL_Surface* screen = SDL_SetVideoMode(640+bmp->w, 480, 16, SDL_HWSURFACE|SDL_DOUBLEBUF);
+    SDL_Surface* screen = SDL_SetVideoMode(screen_w + bmp->w, screen_h, 16, SDL_HWSURFACE|SDL_DOUBLEBUF);
 
     /// centre the bitmap on screen
     SDL_Rect dstrect;
@@ -112,7 +113,7 @@ int main ( int argc, char** argv )
                             case libre:
                                 if(buttonState){
                                     SDL_GetMouseState(&x, &y);
-                                    if (x > -1 && x <640 && y > -1 && y <480){
+                                    if (x > -1 && x <screen_w && y > -1 && y <screen_h){
                                         dibujo_obj.putpixel(screen, x-(x%10), y-(y%10)); /// los pixeles en la pantalla
                                         SDL_UpdateRect(screen, x-(x%10), y-(y%10), 10, 10); /// acutalizar la pantalla (si no se actualiza no se ven los cambios)
                                         x = (int) x/10;
@@ -125,7 +126,7 @@ int main ( int argc, char** argv )
                             case borrar_libre:
                                 if(buttonState){
                                     SDL_GetMouseState(&x, &y);
-                                    if (x > -1 && x <640 && y > -1 && y <480){
+                                    if (x > -1 && x <screen_w && y > -1 && y <screen_h){
                                         Uint32 negro;
                                         negro = SDL_MapRGB(screen->format, 0x00, 0x00, 0x00);
 
