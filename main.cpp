@@ -30,7 +30,6 @@ int main ( int argc, char** argv )
     int const borrar_libre = 3;
     int modoDeDibujo = libre;
     int contador=0;
-    const int TAM_X = 65, TAM_Y = 49;
     /// ------ NOTAS ------ ///
     /// siempre que leas "mapa" se refiere a mapa de pixeles
     /// lo mas importante es la matriz "char mapa" de abajo
