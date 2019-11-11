@@ -149,7 +149,7 @@ int main ( int argc, char** argv )
                                     int x_F;
                                     int y_F;
                                     SDL_GetMouseState(&x_F, &y_F);
-                                    dibujar_cuadrado(x, y, x_F, y_F, dibujo_obj, screen);
+                                    dibujar_cuadrado(x, y, x_F, y_F, dibujo_obj, screen, lienzo_obj);
                                 }
                                 break;
 
@@ -163,7 +163,7 @@ int main ( int argc, char** argv )
                                 if(estado_clic==2)
                                 {
                                     SDL_GetMouseState(&x_F, &y_F);
-                                    dibujar_linea(x,y, x_F, y_F, dibujo_obj, screen);
+                                    dibujar_linea(x,y, x_F, y_F, dibujo_obj, screen, lienzo_obj);
 
                                 }
                                 break;
