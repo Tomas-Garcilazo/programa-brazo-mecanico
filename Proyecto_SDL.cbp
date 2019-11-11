@@ -43,6 +43,7 @@
 			<Add directory="SDL-devel-1.2.15-mingw32/SDL-1.2.15/lib" />
 		</Linker>
 		<Unit filename="cb.bmp" />
+		<Unit filename="clases.h" />
 		<Unit filename="dibujar_formas.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
