@@ -17,6 +17,8 @@ using namespace std;
 
 #include "dibujar_formas.h"
 
+
+
 int main ( int argc, char** argv )
 {
     int const screen_w = 640, screen_h = 480;
@@ -25,6 +27,7 @@ int main ( int argc, char** argv )
     int estado_clic = 0;
 
     int const cuadrado = 0;
+    int const circulo = 4;
     int const libre = 1;
     int const linea = 2;
     int const borrar_libre = 3;
@@ -101,6 +104,9 @@ int main ( int argc, char** argv )
                     case SDLK_b:
                         modoDeDibujo=borrar_libre;
                         break;
+                    case SDLK_a:
+                        modoDeDibujo=circulo;
+                        break;
                     default:
                         break;
                     }
@@ -164,6 +170,18 @@ int main ( int argc, char** argv )
                                     SDL_GetMouseState(&x_F, &y_F);
                                     dibujar_linea(x,y, x_F, y_F, dibujo_obj, screen, &lienzo_obj);
 
+                                }
+                                break;
+
+                            case circulo:
+                                if(estado_clic==1){
+                                    SDL_GetMouseState(&x, &y);
+                                }
+                                if (estado_clic == 2){
+                                    int x_F;
+                                    int y_F;
+                                    SDL_GetMouseState(&x_F, &y_F);
+                                    dibujar_circulo(x, y, x_F, y_F, dibujo_obj, screen, &lienzo_obj);
                                 }
                                 break;
                             }

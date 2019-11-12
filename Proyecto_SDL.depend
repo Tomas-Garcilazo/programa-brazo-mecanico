@@ -386,15 +386,16 @@
 	"begin_code.h"
 	"close_code.h"
 
-1573436731 source:c:\users\erivnah\desktop\programa-brazo-mecanico-master\main.cpp
+1573589575 source:c:\users\erivnah\desktop\programa-brazo-mecanico-master\main.cpp
 	<cstdlib>
 	<stdlib.h>
 	<SDL/SDL.h>
 	<SDL.h>
 	<iostream>
+	"clases.h"
 	"dibujar_formas.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl.h
 	"SDL_main.h"
 	"SDL_stdinc.h"
 	"SDL_audio.h"
@@ -413,14 +414,14 @@
 	"begin_code.h"
 	"close_code.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_main.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_main.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 	"begin_code.h"
 	"close_code.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_stdinc.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_stdinc.h
 	"SDL_config.h"
 	<sys/types.h>
 	<stdio.h>
@@ -446,7 +447,7 @@
 	<stdlib.h>
 	"close_code.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_config.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_config.h
 	"SDL_platform.h"
 	"SDL_config_dreamcast.h"
 	"SDL_config_macos.h"
@@ -456,16 +457,16 @@
 	"SDL_config_os2.h"
 	"SDL_config_minimal.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_platform.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_platform.h
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_config_win32.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_config_win32.h
 	"SDL_platform.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\begin_code.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\begin_code.h
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\close_code.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\close_code.h
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_audio.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_audio.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_endian.h"
@@ -475,24 +476,24 @@
 	"begin_code.h"
 	"close_code.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_error.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_error.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_endian.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_endian.h
 	"SDL_stdinc.h"
 	<endian.h>
 	"begin_code.h"
 	"close_code.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_mutex.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_mutex.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_thread.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_thread.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_mutex.h"
@@ -500,24 +501,24 @@
 	<process.h>
 	"close_code.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_rwops.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_rwops.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_cdrom.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_cdrom.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_cpuinfo.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_cpuinfo.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_events.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_events.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_active.h"
@@ -528,63 +529,63 @@
 	"begin_code.h"
 	"close_code.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_active.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_active.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_keyboard.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_keyboard.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_keysym.h"
 	"begin_code.h"
 	"close_code.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_keysym.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_keysym.h
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_mouse.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_mouse.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_video.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_video.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_rwops.h"
 	"begin_code.h"
 	"close_code.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_joystick.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_joystick.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_quit.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_quit.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_loadso.h
-	"SDL_stdinc.h"
-	"SDL_error.h"
-	"begin_code.h"
-	"close_code.h"
-
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_timer.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_loadso.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_version.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl\sdl_version.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl.h
 	"SDL_main.h"
 	"SDL_stdinc.h"
 	"SDL_audio.h"
@@ -603,14 +604,14 @@
 	"begin_code.h"
 	"close_code.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_main.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_main.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 	"begin_code.h"
 	"close_code.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_stdinc.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_stdinc.h
 	"SDL_config.h"
 	<sys/types.h>
 	<stdio.h>
@@ -636,7 +637,7 @@
 	<stdlib.h>
 	"close_code.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_config.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_config.h
 	"SDL_platform.h"
 	"SDL_config_dreamcast.h"
 	"SDL_config_macos.h"
@@ -646,16 +647,16 @@
 	"SDL_config_os2.h"
 	"SDL_config_minimal.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_platform.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_platform.h
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_config_win32.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_config_win32.h
 	"SDL_platform.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\begin_code.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\begin_code.h
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\close_code.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\close_code.h
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_audio.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_audio.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_endian.h"
@@ -665,24 +666,24 @@
 	"begin_code.h"
 	"close_code.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_error.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_error.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_endian.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_endian.h
 	"SDL_stdinc.h"
 	<endian.h>
 	"begin_code.h"
 	"close_code.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_mutex.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_mutex.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_thread.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_thread.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_mutex.h"
@@ -690,24 +691,24 @@
 	<process.h>
 	"close_code.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_rwops.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_rwops.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_cdrom.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_cdrom.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_cpuinfo.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_cpuinfo.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_events.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_events.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_active.h"
@@ -718,63 +719,64 @@
 	"begin_code.h"
 	"close_code.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_active.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_active.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_keyboard.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_keyboard.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_keysym.h"
 	"begin_code.h"
 	"close_code.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_keysym.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_keysym.h
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_mouse.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_mouse.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_video.h"
 	"begin_code.h"
 	"close_code.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_video.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_video.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"SDL_rwops.h"
 	"begin_code.h"
 	"close_code.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_joystick.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_joystick.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_quit.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_quit.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_loadso.h
-	"SDL_stdinc.h"
-	"SDL_error.h"
-	"begin_code.h"
-	"close_code.h"
-
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_timer.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_loadso.h
 	"SDL_stdinc.h"
 	"SDL_error.h"
 	"begin_code.h"
 	"close_code.h"
 
-1573334577 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_version.h
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\sdl-devel-1.2.15-mingw32\sdl-1.2.15\include\sdl_version.h
 	"SDL_stdinc.h"
 	"begin_code.h"
 	"close_code.h"
 
-1573438456 c:\users\erivnah\desktop\programa-brazo-mecanico-master\dibujar_formas.h
+1573597609 c:\users\erivnah\desktop\programa-brazo-mecanico-master\dibujar_formas.h
+	<math.h>
 
 1573509272 source:j:\0000tomy\programar\github repositorios\programa-brazo-mecanico\main.cpp
 	<cstdlib>
@@ -1168,4 +1170,6 @@
 1573509248 j:\0000tomy\programar\github repositorios\programa-brazo-mecanico\clases.h
 
 1573509202 j:\0000tomy\programar\github repositorios\programa-brazo-mecanico\dibujar_formas.h
+
+1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\clases.h
 
