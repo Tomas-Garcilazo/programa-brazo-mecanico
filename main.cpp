@@ -17,13 +17,14 @@ using namespace std;
 
 #include "dibujar_formas.h"
 
-
-
 int main ( int argc, char** argv )
 {
+	/// tamaño constante de la pantalla
     int const screen_w = 640, screen_h = 480;
+    
     Dibujo dibujo_obj;
     Lienzo lienzo_obj;
+    
     int estado_clic = 0;
 
     int const cuadrado = 0;
@@ -31,14 +32,13 @@ int main ( int argc, char** argv )
     int const libre = 1;
     int const linea = 2;
     int const borrar_libre = 3;
+
     int modoDeDibujo = libre;
-    int contador=0;
     /// ------ NOTAS ------ ///
     /// siempre que leas "mapa" se refiere a mapa de pixeles
-    /// lo mas importante es la matriz "char mapa" de abajo
+    /// lo mas importante es la matriz "int mapa" de abajo
     ///el archivo se crea cuando el programa SE CIERRA
     lienzo_obj.Poner_Mapa_0();
-
 
     int x, y;
     bool buttonState  = false;
@@ -60,21 +60,13 @@ int main ( int argc, char** argv )
     /// actualizar pantalla
     SDL_Flip(screen);
 
-
-
     /// program main loop
     bool done = false;
-    while (!done)
-    {
-
+    while (!done){
         /// message processing loop
         SDL_Event event;
-        while (SDL_PollEvent(&event))
-        {
-
-           switch (event.type)
-                {
-                    /// exit if the window is closed
+        while (SDL_PollEvent(&event)){
+           switch (event.type){
                 case SDL_QUIT:
                     done = true;
                     break;
@@ -82,9 +74,8 @@ int main ( int argc, char** argv )
                 case SDL_MOUSEBUTTONDOWN:
                     buttonState = true;
                     estado_clic=1;
-                    contador++;
-
                     break;
+
                 case SDL_MOUSEBUTTONUP:
                     buttonState = false;
                     estado_clic=2;
@@ -93,7 +84,6 @@ int main ( int argc, char** argv )
                     switch( event.key.keysym.sym ){
                     case SDLK_c:
                         modoDeDibujo=cuadrado;
-                        contador=0;
                         break;
                     case SDLK_l:
                         modoDeDibujo=libre;
@@ -149,7 +139,7 @@ int main ( int argc, char** argv )
                                 if(estado_clic==1){
                                 SDL_GetMouseState(&x, &y);
                                 }
-                                if (estado_clic == 2){
+                                else if (estado_clic == 2){
                                     int x_F;
                                     int y_F;
                                     SDL_GetMouseState(&x_F, &y_F);
@@ -164,7 +154,7 @@ int main ( int argc, char** argv )
                                 {
                                     SDL_GetMouseState(&x,&y);
                                 }
-                                if(estado_clic==2)
+                                else if(estado_clic==2)
                                 {
                                     SDL_GetMouseState(&x_F, &y_F);
                                     dibujar_linea(x,y, x_F, y_F, dibujo_obj, screen, &lienzo_obj);
@@ -176,7 +166,7 @@ int main ( int argc, char** argv )
                                 if(estado_clic==1){
                                     SDL_GetMouseState(&x, &y);
                                 }
-                                if (estado_clic == 2){
+                                else if (estado_clic == 2){
                                     int x_F;
                                     int y_F;
                                     SDL_GetMouseState(&x_F, &y_F);
@@ -189,7 +179,7 @@ int main ( int argc, char** argv )
                         }
                         estado_clic = 0;
 
-                }
+    }
 
     lienzo_obj.mostrar_mapa();
     FILE *f;

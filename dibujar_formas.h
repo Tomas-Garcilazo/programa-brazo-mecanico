@@ -100,7 +100,7 @@ else
 
 }
 void dibujar_circulo(int x1, int y1, int x2, int y2, Dibujo dibujo_obj, SDL_Surface* screen, Lienzo *lienzo_obj){
-int n;
+int r_x;
 
 x1 = x1-(x1%10);
 y1 = y1-(y1%10);
@@ -128,19 +128,21 @@ else if (y1 > y2){
 }
 else{return;}
 
-n=(max_x-min_x)/2;
+r_x=(max_x-min_x)/2;
 
-int radio_cuadrada= pow(n,2);
+int radio_cuadrada= pow(r_x,2);
 
-for(int j=0;j<=n*2;j++){
-    for(int i=0;i<=n*2;i++){
-        float cuenta =pow(i-n,2.0)+ pow(j-n,2.0);
+for(int j=0;j<=r_x*2;j++){
+    for(int i=0;i<=r_x*2;i++){
+        float cuenta =pow(i-r_x,2.0)+ pow(j-r_x,2.0);
 
         if(cuenta >= radio_cuadrada-(int)radio_cuadrada/200 && cuenta <= radio_cuadrada+(int)radio_cuadrada/200 ){
-        	if (i <640 && j <480){
-                dibujo_obj.putpixel(screen, j-(j%10), i-(i%10));
-                SDL_UpdateRect(screen, j-(j%10), i-(i%10), 10, 10);
-                lienzo_obj->marcar_mapa((int) j/10, (int) i/10, 1);
+        	if (j+min_x < 640 && i+min_y < 480){
+                cout << "j: " << j << "\ti: " << i << endl;
+
+                dibujo_obj.putpixel(screen, j-(j%10)+min_x, i-(i%10)+min_y);
+                SDL_UpdateRect(screen, j-(j%10)+min_x, i-(i%10)+min_y, 10, 10);
+                lienzo_obj->marcar_mapa((int) i/10, (int) j/10, 1);
         	}
 
         }
