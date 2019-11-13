@@ -136,7 +136,6 @@ int main ( int argc, char** argv )
                                         negro = SDL_MapRGB(screen->format, 0x00, 0x00, 0x00);
 
                                         SDL_Rect rectangulo = {x-(x%10), y-(y%10), 10, 10};
-                                        ///dibujo_obj.putpixel(screen, x-(x%10), y-(y%10)); /// los pixeles en la pantalla
                                         SDL_FillRect(screen, &rectangulo, negro);
                                         SDL_UpdateRect(screen, x-(x%10), y-(y%10), 10, 10); /// acutalizar la pantalla (si no se actualiza no se ven los cambios)
                                         x = (int) x/10;
