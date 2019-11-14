@@ -21,13 +21,14 @@ int main ( int argc, char** argv )
 {
 	/// tamaño constante de la pantalla
     int const screen_w = 640, screen_h = 480;
-    
+
     Dibujo dibujo_obj;
     Lienzo lienzo_obj;
-    
+
     int estado_clic = 0;
 
     int const cuadrado = 0;
+    int const rombo=5;
     int const circulo = 4;
     int const libre = 1;
     int const linea = 2;
@@ -96,6 +97,9 @@ int main ( int argc, char** argv )
                         break;
                     case SDLK_a:
                         modoDeDibujo=circulo;
+                        break;
+                    case SDLK_r:
+                        modoDeDibujo=rombo;
                         break;
                     default:
                         break;
@@ -171,6 +175,18 @@ int main ( int argc, char** argv )
                                     int y_F;
                                     SDL_GetMouseState(&x_F, &y_F);
                                     dibujar_circulo(x, y, x_F, y_F, dibujo_obj, screen, &lienzo_obj);
+                                }
+                                break;
+
+                            case rombo:
+                                if(estado_clic==1){
+                                SDL_GetMouseState(&x, &y);
+                                }
+                                else if (estado_clic == 2){
+                                    int x_F;
+                                    int y_F;
+                                    SDL_GetMouseState(&x_F, &y_F);
+                                    dibujar_cuadrado(x, y, x_F, y_F, dibujo_obj, screen, &lienzo_obj);
                                 }
                                 break;
                             }
