@@ -1,0 +1,14 @@
+//#include <Servo.h>
+#include <cstdlib>
+#include <iostream>
+
+using namespace std;
+
+void correr_instrucciones();
+
+int main(){
+	
+	return 0;
+}
+
+void correr_instrucciones(){

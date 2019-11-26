@@ -778,12 +778,11 @@
 1573597609 c:\users\erivnah\desktop\programa-brazo-mecanico-master\dibujar_formas.h
 	<math.h>
 
-1573509272 source:j:\0000tomy\programar\github repositorios\programa-brazo-mecanico\main.cpp
-	<cstdlib>
-	<stdlib.h>
-	<SDL/SDL.h>
+1574792811 source:j:\0000tomy\programar\github repositorios\programa-brazo-mecanico\main.cpp
 	<SDL.h>
+	<cstdlib>
 	<iostream>
+	"crear_codigo.h"
 	"clases.h"
 	"dibujar_formas.h"
 
@@ -1169,7 +1168,8 @@
 
 1573509248 j:\0000tomy\programar\github repositorios\programa-brazo-mecanico\clases.h
 
-1573509202 j:\0000tomy\programar\github repositorios\programa-brazo-mecanico\dibujar_formas.h
+1574282350 j:\0000tomy\programar\github repositorios\programa-brazo-mecanico\dibujar_formas.h
+	<math.h>
 
 1573514053 c:\users\erivnah\desktop\programa-brazo-mecanico-master\clases.h
 
@@ -1566,4 +1566,6 @@
 
 1573736126 c:\users\erivnah\desktop\programa-brazo-mecanico-master - copy\dibujar_formas.h
 	<math.h>
+
+1574717174 j:\0000tomy\programar\github repositorios\programa-brazo-mecanico\crear_codigo.h
 

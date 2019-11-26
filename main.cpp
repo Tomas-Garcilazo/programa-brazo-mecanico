@@ -1,20 +1,16 @@
-#ifdef __cplusplus
-    #include <cstdlib>
-#else
-    #include <stdlib.h>
-#endif
-#ifdef __APPLE__
-#include <SDL/SDL.h>
-#else
+///#ifdef __APPLE__
+///#include <SDL/SDL.h>
+///#else
 #include <SDL.h>
-#endif
+///#endif
 
+#include <cstdlib>
 #include <iostream>
 
 using namespace std;
 
+#include "crear_codigo.h"
 #include "clases.h"
-
 #include "dibujar_formas.h"
 
 int main ( int argc, char** argv )
@@ -201,6 +197,9 @@ int main ( int argc, char** argv )
     FILE *f;
     f = fopen("archivo_matriz.dat", "wb");
     fwrite(lienzo_obj.get_mapa(), sizeof(int)*65*49, 1, f);
+
+    /// escribe las instrucciones que se le pasan al brazo
+    escribir_codigo_final();
 
     return 0;
 }
