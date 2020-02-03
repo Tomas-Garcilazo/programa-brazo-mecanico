@@ -100,7 +100,6 @@ else
 
 }
 void dibujar_circulo(int x1, int y1, int x2, int y2, Dibujo dibujo_obj, SDL_Surface* screen, Lienzo *lienzo_obj){
-int r_x;
 
 x1 = x1-(x1%10);
 y1 = y1-(y1%10);
@@ -122,57 +121,39 @@ if (y2 > y1){
     max_y = y2;
     min_y = y1;
 }
+/*
 else if (y1 > y2){
     max_y = y1;
     min_y = y2;
 }
 else{return;}
-
-int radius=(max_x-min_x)/2;
-
-float dist;
-
-// for horizontal movement
-for (int i = 0; i <= 2 * radius; i++) {
-
-            // for vertical movement
-            for (int j = 0; j <= 2 * radius; j++) {
-            dist = sqrt((i - radius) * (i - radius) +
-                                               (j - radius) * (j - radius));
-
-            // dist should be in the range (radius - 0.5)
-            // and (radius + 0.5) to print stars(*)
-            if (dist > radius - 0.5 && dist < radius + 0.5){
-
-
-                dibujo_obj.putpixel(screen, j-(j%1)+min_x, i-(i%1)+min_y);
-                SDL_UpdateRect(screen, j-(j%1)+min_x, i-(i%1)+min_y, 5, 5);
-                lienzo_obj->marcar_mapa((int) ((j+min_x)/10), (int) ((i+min_y)/10), 1);
-
-            }
-
-            }
+*/
+else{
+    max_y = y1;
+    min_y = y2;
 }
 
-int radio_cuadrada= pow(r_x,2);
-/*
-for(int j=0;j<=r_x*2;j++){
-    for(int i=0;i<=r_x*2;i++){
-        float cuenta =pow(i-r_x,2.0)+ pow(j-r_x,2.0);
+float diametro = max_x - min_x;
+float r_x = diametro / 2;
+float radio_cuadrada= pow(r_x,2);
 
-        if(cuenta >= radio_cuadrada-(int)radio_cuadrada/200 && cuenta <= radio_cuadrada+(int)radio_cuadrada/200 ){
-        	if (j+min_x < 640 && i+min_y < 480){
-                cout << "j: " << j << "\ti: " << i << endl;
-
-                dibujo_obj.putpixel(screen, j-(j%10)+min_x, i-(i%10)+min_y);
-                SDL_UpdateRect(screen, j-(j%10)+min_x, i-(i%10)+min_y, 10, 10);
-                lienzo_obj->marcar_mapa((int) i/10, (int) j/10, 1);
-        	}
-
+for(int j=0;j<=diametro; j+=10){
+    for(int i=0;i<=diametro; i+=10){
+        for(int a = -10; a <= 10; a+= 10){
+            for(int b = -10; b <= 10; b+= 10){
+                float cuenta_1 =pow(i-r_x,2.0) + pow(j-r_x,2.0);
+                float cuenta_2 =pow(i+b-r_x,2.0) + pow(j+a-r_x,2.0);
+                if(cuenta_1 <= radio_cuadrada && cuenta_2 > radio_cuadrada){
+                	if (j+min_x < 640 && i+min_y < 480){
+                        dibujo_obj.putpixel(screen, j+min_x, i+min_y);
+                        SDL_UpdateRect(screen, j+min_x, i+min_y, 10, 10);
+                        lienzo_obj->marcar_mapa(i/10 + min_y/10, j/10 + min_x/10, 1);
+                	}
+                }
+            }
         }
     }
 }
-*/
 }
 
 void dibujar_rombo(int x1, int y1, int x2, int y2, Dibujo dibujo_obj, SDL_Surface* screen, Lienzo *lienzo_obj){
