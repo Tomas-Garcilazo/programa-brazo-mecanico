@@ -1,6 +1,6 @@
 #ifndef DIBUJAR_FORMAS_H_INCLUDED
 #define DIBUJAR_FORMAS_H_INCLUDED
-#include <math.h>
+
 void dibujar_cuadrado(int x1, int y1, int x2, int y2, Dibujo dibujo_obj, SDL_Surface* screen, Lienzo *lienzo_obj){
 int maxX, maxY, minX, minY, x, y;
 
@@ -30,19 +30,19 @@ for(int i=maxX;i>minX;i--){
 
     x= i;
     y= minY;
-    dibujo_obj.putpixel(screen, x-(x%10), y-(y%10));
+    dibujo_obj.putpixel(screen, x, y);
     lienzo_obj->marcar_mapa(y, x, 1);
 }
 for(int i=maxY;i>minY;i--){
 
     x= maxX;
     y=i;
-    dibujo_obj.putpixel(screen, x-(x%10), y-(y%10));
+    dibujo_obj.putpixel(screen, x, y);
     lienzo_obj->marcar_mapa(y, x, 1);
 
     x= minX;
     y=i;
-    dibujo_obj.putpixel(screen, x-(x%10), y-(y%10));
+    dibujo_obj.putpixel(screen, x, y);
     lienzo_obj->marcar_mapa( y, x, 1);
 }}
 
@@ -200,12 +200,10 @@ for (int j = 0; j <= radio; j+= 10) {
 
     x_real = j + min_x + radio;
     y_real = j + min_y;
-
     dibujo_obj.putpixel(screen, x_real, y_real);
     lienzo_obj->marcar_mapa(y_real, x_real, 1);
 
     y_real = -j + min_y + radio*2;
-
     dibujo_obj.putpixel(screen, x_real, y_real);
     lienzo_obj->marcar_mapa(y_real, x_real, 1);
 }
