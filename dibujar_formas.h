@@ -101,10 +101,10 @@ else
 }
 void dibujar_circulo(int x1, int y1, int x2, int y2, Dibujo dibujo_obj, SDL_Surface* screen, Lienzo *lienzo_obj){
 
-x1 = x1-(x1%10);
-y1 = y1-(y1%10);
-x2 = x2-(x2%10);
-y2 = y2-(y2%10);
+x1 -= (x1%10);
+y1 -= (y1%10);
+x2 -= (x2%10);
+y2 -= (y2%10);
 
 int max_x, max_y, min_x, min_y;
 if (x2 > x1){
