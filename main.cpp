@@ -33,7 +33,11 @@ int main ( int argc, char** argv ){
     ///el archivo se crea cuando el programa SE CIERRA
     lienzo_obj.Poner_Mapa_0();
 
+    // pocicion del mouse cuando presiona el clic
     int x, y;
+    // pocicion del mouse cuando suelta el clic (f de final)
+    int x_f, y_f;
+
     bool buttonState  = false;
     atexit(SDL_Quit);
 
@@ -132,25 +136,22 @@ int main ( int argc, char** argv ){
                                 SDL_GetMouseState(&x, &y);
                                 }
                                 else if (estado_clic == 2){
-                                    int x_F;
-                                    int y_F;
-                                    SDL_GetMouseState(&x_F, &y_F);
-                                    dibujar_cuadrado(x, y, x_F, y_F, dibujo_obj, screen, &lienzo_obj);
+
+                                    SDL_GetMouseState(&x_f, &y_f);
+                                    dibujar_cuadrado(x, y, x_f, y_f, dibujo_obj, screen, &lienzo_obj);
                                     estado_clic = 0;
                                 }
                                 break;
 
                             case LINEA:
-                                int x_F;
-                                int y_F;
                                 if(estado_clic==1)
                                 {
                                     SDL_GetMouseState(&x,&y);
                                 }
                                 else if(estado_clic==2)
                                 {
-                                    SDL_GetMouseState(&x_F, &y_F);
-                                    dibujar_linea(x,y, x_F, y_F, dibujo_obj, screen, &lienzo_obj);
+                                    SDL_GetMouseState(&x_f, &y_f);
+                                    dibujar_linea(x,y, x_f, y_f, dibujo_obj, screen, &lienzo_obj);
                                     estado_clic = 0;
 
                                 }
@@ -161,10 +162,8 @@ int main ( int argc, char** argv ){
                                     SDL_GetMouseState(&x, &y);
                                 }
                                 else if (estado_clic == 2){
-                                    int x_F;
-                                    int y_F;
-                                    SDL_GetMouseState(&x_F, &y_F);
-                                    dibujar_circulo(x, y, x_F, y_F, dibujo_obj, screen, &lienzo_obj);
+                                    SDL_GetMouseState(&x_f, &y_f);
+                                    dibujar_circulo(x, y, x_f, y_f, dibujo_obj, screen, &lienzo_obj);
                                     estado_clic = 0;
                                 }
                                 break;
@@ -174,10 +173,8 @@ int main ( int argc, char** argv ){
                                 SDL_GetMouseState(&x, &y);
                                 }
                                 else if (estado_clic == 2){
-                                    int x_F;
-                                    int y_F;
-                                    SDL_GetMouseState(&x_F, &y_F);
-                                    dibujar_rombo(x, y, x_F, y_F, dibujo_obj, screen, &lienzo_obj);
+                                    SDL_GetMouseState(&x_f, &y_f);
+                                    dibujar_rombo(x, y, x_f, y_f, dibujo_obj, screen, &lienzo_obj);
                                     estado_clic = 0;
                                 }
                                 break;
