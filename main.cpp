@@ -52,7 +52,7 @@ int main ( int argc, char** argv ){
 
     rectangulo.x = screen->w - bmp->w;
     rectangulo.y = 0;
-    
+
     SDL_BlitSurface(bmp, 0, screen, &rectangulo);
 
     /// actualizar pantalla
@@ -120,7 +120,7 @@ int main ( int argc, char** argv ){
                                 if(buttonState){
                                     SDL_GetMouseState(&x, &y);
                                     if (x > -1 && x <SCREEN_W && y > -1 && y <SCREEN_H){
-                                        /// ESTO TIENE QUE SER CAMBIADO PARA USAR LA FUNCION PUTPIXEL
+                                        /// ESTO HAY QUE CAMBIARLO, QUE USE LA FUNCION PUTPIXEL
                                         /// PERO PERIMERO HAY QUE PONERLE UN SWITCH CON EL COLOR A LA FUNCION
                                         Uint32 negro;
                                         negro = SDL_MapRGB(screen->format, 0x00, 0x00, 0x00);
