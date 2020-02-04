@@ -1,11 +1,8 @@
-///#ifdef __APPLE__
-///#include <SDL/SDL.h>
-///#else
 #include <SDL.h>
-///#endif
 
 #include <cstdlib>
 #include <iostream>
+#include <math.h>
 
 using namespace std;
 
