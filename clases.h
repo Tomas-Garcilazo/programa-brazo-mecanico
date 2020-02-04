@@ -11,6 +11,11 @@ class Lienzo{
         {   
             x = (int) x/10;
             y = (int) y/10;
+
+            if (x >= 64 || y >= 48 || x < 0 || y < 0){
+                return;
+            }
+
             mapa[y][x] = valor;
         }
         void Poner_Mapa_0();
@@ -60,7 +65,9 @@ void Dibujo::putpixel(SDL_Surface *screen, int x, int y)
 {   
     x -= x%10;
     y -= y%10;
-
+    if (x >= 640 || y >= 480 || x < 0 || y < 0){
+        return;
+    }
     Uint32 px_amarillo, px_negro;
 
     // esto crea un de un pixel amarillo

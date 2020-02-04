@@ -74,18 +74,20 @@ int diferenciaY= maxY-minY;
 if(diferenciaX>diferenciaY)
 {
     for(int i=maxX;i>minX;i--){
-        x= i;
-        y=maxY;
-        dibujo_obj.putpixel(screen, x-(x%10), y-(y%10));
+        x = i;
+        y = maxY;
+
+        dibujo_obj.putpixel(screen, x, y);
         lienzo_obj->marcar_mapa(y, x, 1);
     }
 }
 else
 {
     for(int i=maxY;i>minY;i--){
-        x= maxX;
-        y=i;
-        dibujo_obj.putpixel(screen, x-(x%10), y-(y%10));
+        x = maxX;
+        y = i;
+
+        dibujo_obj.putpixel(screen, x, y);
         lienzo_obj->marcar_mapa(y, x, 1);
     }
 }
@@ -133,13 +135,14 @@ for(int j=0;j<=diametro; j+=10){
     for(int i=0;i<=diametro; i+=10){
         for(int a = -10; a <= 10; a+= 10){
             for(int b = -10; b <= 10; b+= 10){
-                float cuenta_1 =pow(i-r_x,2.0) + pow(j-r_x,2.0);
-                float cuenta_2 =pow(i+b-r_x,2.0) + pow(j+a-r_x,2.0);
+                float cuenta_1 = pow(i-r_x,2.0) + pow(j-r_x,2.0);
+                float cuenta_2 = pow(i+b-r_x,2.0) + pow(j+a-r_x,2.0);
                 if(cuenta_1 <= radio_cuadrada && cuenta_2 > radio_cuadrada){
-                	if (j+min_x < 640 && i+min_y < 480){
-                        dibujo_obj.putpixel(screen, j+min_x, i+min_y);
-                        lienzo_obj->marcar_mapa(i + min_y, j + min_x, 1);
-                	}
+                    int x = j+min_x;
+                    int y = i+min_y;
+
+                    dibujo_obj.putpixel(screen, x, y);
+                    lienzo_obj->marcar_mapa(y, x, 1);
                 }
             }
         }
@@ -188,31 +191,23 @@ for (int j = 0; j <= radio; j+= 10) {
 
     int x_real = j + min_x;
     int y_real = j + min_y + radio;
+    dibujo_obj.putpixel(screen, x_real, y_real);
+    lienzo_obj->marcar_mapa(y_real,  x_real, 1);
 
-    if (x_real < 640 && y_real < 480){
-        dibujo_obj.putpixel(screen, x_real, y_real);
-        lienzo_obj->marcar_mapa(y_real,  x_real, 1);
-    }
     y_real = -j + min_y + radio;
-    
-    if (x_real < 640 && y_real < 480){
-        dibujo_obj.putpixel(screen, x_real, y_real);
-        lienzo_obj->marcar_mapa(y_real, x_real, 1);
-    }
+    dibujo_obj.putpixel(screen, x_real, y_real);
+    lienzo_obj->marcar_mapa(y_real, x_real, 1);
 
     x_real = j + min_x + radio;
     y_real = j + min_y;
 
-    if (x_real < 640 && y_real < 480){
-        dibujo_obj.putpixel(screen, x_real, y_real);
-        lienzo_obj->marcar_mapa(y_real, x_real, 1);
-    }
+    dibujo_obj.putpixel(screen, x_real, y_real);
+    lienzo_obj->marcar_mapa(y_real, x_real, 1);
+
     y_real = -j + min_y + radio*2;
 
-    if (x_real < 640 && y_real < 480){
-        dibujo_obj.putpixel(screen, x_real, y_real);
-        lienzo_obj->marcar_mapa(y_real, x_real, 1);
-    }
+    dibujo_obj.putpixel(screen, x_real, y_real);
+    lienzo_obj->marcar_mapa(y_real, x_real, 1);
 }
 
 }
