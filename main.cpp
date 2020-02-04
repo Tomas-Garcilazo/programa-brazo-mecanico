@@ -23,14 +23,14 @@ int main ( int argc, char** argv )
 
     int estado_clic = 0;
 
-    int const cuadrado = 0;
-    int const rombo=5;
-    int const circulo = 4;
-    int const libre = 1;
-    int const linea = 2;
-    int const borrar_libre = 3;
+    int const CUADRADO      = 0;
+    int const LIBRE         = 1;
+    int const LINEA         = 2;
+    int const BORRAR_LIBRE  = 3;
+    int const ROMBO         = 5;
+    int const CIRCULO       = 4;
 
-    int modoDeDibujo = libre;
+    int modoDeDibujo = LIBRE;
     /// ------ NOTAS ------ ///
     /// siempre que leas "mapa" se refiere a mapa de pixeles
     /// lo mas importante es la matriz "int mapa" de abajo
@@ -80,22 +80,22 @@ int main ( int argc, char** argv )
                 case SDL_KEYDOWN:
                     switch( event.key.keysym.sym ){
                     case SDLK_c:
-                        modoDeDibujo=cuadrado;
+                        modoDeDibujo=CUADRADO;
                         break;
                     case SDLK_l:
-                        modoDeDibujo=libre;
+                        modoDeDibujo=LIBRE;
                         break;
                     case SDLK_d:
-                        modoDeDibujo=linea;
+                        modoDeDibujo=LINEA;
                         break;
                     case SDLK_b:
-                        modoDeDibujo=borrar_libre;
+                        modoDeDibujo=BORRAR_LIBRE;
                         break;
                     case SDLK_a:
-                        modoDeDibujo=circulo;
+                        modoDeDibujo=CIRCULO;
                         break;
                     case SDLK_r:
-                        modoDeDibujo=rombo;
+                        modoDeDibujo=ROMBO;
                         break;
                     default:
                         break;
@@ -105,7 +105,7 @@ int main ( int argc, char** argv )
                 }
 
                         switch(modoDeDibujo){
-                            case libre:
+                            case LIBRE:
                                 if(buttonState){
                                     SDL_GetMouseState(&x, &y);
                                     if (x > -1 && x <screen_w && y > -1 && y <screen_h){
@@ -118,7 +118,7 @@ int main ( int argc, char** argv )
                                 }
                                 break;
 
-                            case borrar_libre:
+                            case BORRAR_LIBRE:
                                 if(buttonState){
                                     SDL_GetMouseState(&x, &y);
                                     if (x > -1 && x <screen_w && y > -1 && y <screen_h){
@@ -135,7 +135,7 @@ int main ( int argc, char** argv )
                                 }
                                 break;
 
-                            case cuadrado:
+                            case CUADRADO:
                                 if(estado_clic==1){
                                 SDL_GetMouseState(&x, &y);
                                 }
@@ -147,7 +147,7 @@ int main ( int argc, char** argv )
                                 }
                                 break;
 
-                            case linea:
+                            case LINEA:
                                 int x_F;
                                 int y_F;
                                 if(estado_clic==1)
@@ -162,7 +162,7 @@ int main ( int argc, char** argv )
                                 }
                                 break;
 
-                            case circulo:
+                            case CIRCULO:
                                 if(estado_clic==1){
                                     SDL_GetMouseState(&x, &y);
                                 }
@@ -174,7 +174,7 @@ int main ( int argc, char** argv )
                                 }
                                 break;
 
-                            case rombo:
+                            case ROMBO:
                                 if(estado_clic==1){
                                 SDL_GetMouseState(&x, &y);
                                 }
