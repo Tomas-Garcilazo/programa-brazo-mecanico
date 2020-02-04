@@ -41,18 +41,19 @@ int main ( int argc, char** argv ){
     bool buttonState  = false;
     atexit(SDL_Quit);
 
+    /// crea una nueva ventana
+    SDL_Surface* screen = SDL_SetVideoMode(SCREEN_W + bmp->w, SCREEN_H, 16, SDL_HWSURFACE|SDL_DOUBLEBUF);
+
     /// cargar imagen
     SDL_Surface* bmp = SDL_LoadBMP("imagenes/botones.bmp");
 
-    /// create a new window
-    SDL_Surface* screen = SDL_SetVideoMode(SCREEN_W + bmp->w, SCREEN_H, 16, SDL_HWSURFACE|SDL_DOUBLEBUF);
+    /// rectangulo que va a contener la posicion donde se va a mostrar la imagen 
+    SDL_Rect rectangulo;
 
-    /// centre the bitmap on screen
-    SDL_Rect dstrect;
-
-    dstrect.x = screen->w - bmp->w;
-    dstrect.y = 0;
-    SDL_BlitSurface(bmp, 0, screen, &dstrect);
+    rectangulo.x = screen->w - bmp->w;
+    rectangulo.y = 0;
+    
+    SDL_BlitSurface(bmp, 0, screen, &rectangulo);
 
     /// actualizar pantalla
     SDL_Flip(screen);
@@ -123,8 +124,8 @@ int main ( int argc, char** argv ){
                                         /// PERO PERIMERO HAY QUE PONERLE UN SWITCH CON EL COLOR A LA FUNCION
                                         Uint32 negro;
                                         negro = SDL_MapRGB(screen->format, 0x00, 0x00, 0x00);
-                                        SDL_Rect rectangulo = {x-(x%10), y-(y%10), 10, 10};
-                                        SDL_FillRect(screen, &rectangulo, negro);
+                                        SDL_Rect rectangulo_negro = {x-(x%10), y-(y%10), 10, 10};
+                                        SDL_FillRect(screen, &rectangulo_negro, negro);
                                         SDL_UpdateRect(screen, x-(x%10), y-(y%10), 10, 10); /// acutalizar la pantalla (si no se actualiza no se ven los cambios)
                                         lienzo_obj.marcar_mapa(y, x, 0);
                                     }
