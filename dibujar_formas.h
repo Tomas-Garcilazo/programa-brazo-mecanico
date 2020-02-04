@@ -158,10 +158,10 @@ for(int j=0;j<=diametro; j+=10){
 
 void dibujar_rombo(int x1, int y1, int x2, int y2, Dibujo dibujo_obj, SDL_Surface* screen, Lienzo *lienzo_obj){
 
-x1 = x1-(x1%10);
-y1 = y1-(y1%10);
-x2 = x2-(x2%10);
-y2 = y2-(y2%10);
+x1 -= x1%10;
+y1 -= y1%10;
+x2 -= x2%10;
+y2 -= y2%10;
 
 int max_x, max_y, min_x, min_y;
 if (x2 > x1){
@@ -178,37 +178,55 @@ if (y2 > y1){
     max_y = y2;
     min_y = y1;
 }
+/*
 else if (y1 > y2){
     max_y = y1;
     min_y = y2;
 }
-
-
-int n = (max_x-min_x)/2;
-
-for (int j = 0; j < n ; ++j) {
-        for (int i = 0; i < n-j-1; ++i){
-            for (int i = 0; i < 2*j+1; ++i){
-
-                dibujo_obj.putpixel(screen, j-(j%1)+min_x, i-(i%1)+min_y);
-                SDL_UpdateRect(screen, j-(j%1)+min_x, i-(i%1)+min_y, 5, 5);
-                lienzo_obj->marcar_mapa((int) ((j+min_x)/10), (int) ((i+min_y)/10), 1);
-            }
-        }
+else{return;}
+*/
+else{
+    max_y = y1;
+    min_y = y2;
 }
 
-        for (int j=n-2; j>=0; --j){
-            for (int i=0; i<n-j-1; ++i){
-                for (int i=0; i<2*j+1; ++i){
-                    dibujo_obj.putpixel(screen, j-(j%1)+min_x, i-(i%1)+min_y);
-                    SDL_UpdateRect(screen, j-(j%1)+min_x, i-(i%1)+min_y, 5, 5);
-                    lienzo_obj->marcar_mapa((int) ((j+min_x)/10), (int) ((i+min_y)/10), 1);
+int radio = (max_x-min_x)/2;
+radio -= radio % 10;
 
-                }
-            }
-        }
+for (int j = 0; j <= radio; j+= 10) {
 
+    int x_real = j + min_x;
+    int y_real = j + min_y + radio;
 
+    if (x_real < 640 && y_real < 480){
+        dibujo_obj.putpixel(screen, x_real, y_real);
+        SDL_UpdateRect(screen, x_real, y_real, 10, 10);
+        lienzo_obj->marcar_mapa((int) (y_real/10), (int) (x_real/10), 1);
+    }
+    y_real = -j + min_y + radio;
+    
+    if (x_real < 640 && y_real < 480){
+        dibujo_obj.putpixel(screen, x_real, y_real);
+        SDL_UpdateRect(screen, x_real, y_real, 10, 10);
+        lienzo_obj->marcar_mapa((int) (y_real/10), (int) (x_real/10), 1);
+    }
+
+    x_real = j + min_x + radio;
+    y_real = j + min_y;
+
+    if (x_real < 640 && y_real < 480){
+        dibujo_obj.putpixel(screen, x_real, y_real);
+        SDL_UpdateRect(screen, x_real, y_real, 10, 10);
+        lienzo_obj->marcar_mapa((int) (y_real/10), (int) (x_real/10), 1);
+    }
+    y_real = -j + min_y + radio*2;
+
+    if (x_real < 640 && y_real < 480){
+        dibujo_obj.putpixel(screen, x_real, y_real);
+        SDL_UpdateRect(screen, x_real, y_real, 10, 10);
+        lienzo_obj->marcar_mapa((int) (y_real/10), (int) (x_real/10), 1);
+    }
+}
 
 }
 
