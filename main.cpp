@@ -23,8 +23,8 @@ int main ( int argc, char** argv ){
     int const LIBRE         = 1;
     int const LINEA         = 2;
     int const BORRAR_LIBRE  = 3;
-    int const ROMBO         = 5;
     int const CIRCULO       = 4;
+    int const ROMBO         = 5;
 
     int modoDeDibujo = LIBRE;
     /// ------ NOTAS ------ ///
