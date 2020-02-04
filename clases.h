@@ -1,119 +1,92 @@
 #ifndef CLASES_H_INCLUDED
 #define CLASES_H_INCLUDED
 
-class Lienzo
-{
-private:
-    int mapa[49][65];
-public:
-    void guardar_mapa();
-    void mostrar_mapa();
-    void marcar_mapa(int y, int x, int valor)
-    {
-        mapa[y][x] = valor;
-    }
-    void Poner_Mapa_0();
-    int* get_mapa()
-    {
-        return (int *) mapa;
-    }
-    int get_valor(int y, int x)
-    {
-        return mapa[y][x];
-    }
-};
-
-class Dibujo
-{
-private:
-    int *lista_de_trazos; /// esto va a ser un vector que se va a modificar con malloc
-    Lienzo *obj_lienzo;
-public:
-    void dibujar_nuevo();
-    void dibujar();
-    void borrar();
-    void putpixel(SDL_Surface*, int,int);
-};
-
-class Plantilla
-{
-private:
-    int mapa[10][10];
-public:
-    void cargar_plantilla();
-    void poner_en_lienzo(Lienzo);
-};
-
-class Boton
-{
-private:
-    char tecla;
-public:
-    cargarBoton();
-};
-
-class Ventana
-{
-private:
-public:
-};
-
-// esta es la funcion que dibuja en la pantalla, por ahora ignorala
-void Dibujo::putpixel(SDL_Surface *surface, int x, int y)
-{
-    Uint32 pixel;
-    pixel = SDL_MapRGB(surface->format, 0xff, 0xff, 0x00); // esto crea una "plantilla" de un pixel amarillo
-
-    int bpp = surface->format->BytesPerPixel;
-    Uint8 *p;
-
-    for (int i = 0; i<10; i++)
-    {
-        for (int h = 0; h<10; h++)
-        {
-            p = (Uint8 *)surface->pixels + (y+i) * surface->pitch + (x+h) * bpp;
-
-            switch(bpp)
-            {
-            case 1:
-                *p = pixel;
-                break;
-            case 2:
-                *(Uint16 *)p = pixel;
-                break;
-            case 3:
-                if(SDL_BYTEORDER == SDL_BIG_ENDIAN)
-                {
-                    p[0] = (pixel >> 16) & 0xff;
-                    p[1] = (pixel >> 8) & 0xff;
-                    p[2] = pixel & 0xff;
-                }
-                else
-                {
-                    p[0] = pixel & 0xff;
-                    p[1] = (pixel >> 8) & 0xff;
-                    p[2] = (pixel >> 16) & 0xff;
-                }
-                break;
-
-            case 4:
-                *(Uint32 *)p = pixel;
-                break;
-            }
+class Lienzo{
+    private:
+        int mapa[49][65];
+    public:
+        void guardar_mapa();
+        void mostrar_mapa();
+        void marcar_mapa(int y, int x, int valor)
+        {   
+            x = (int) x/10;
+            y = (int) y/10;
+            mapa[y][x] = valor;
         }
-    }
+        void Poner_Mapa_0();
+        int* get_mapa()
+        {
+            return (int *) mapa;
+        }
+        int get_valor(int y, int x)
+        {
+            return mapa[y][x];
+        }
+};
+
+class Dibujo{
+    private:
+        int *lista_de_trazos; /// esto va a ser un vector que se va a modificar con malloc
+        Lienzo *obj_lienzo;
+    public:
+        void dibujar_nuevo();
+        void dibujar();
+        void borrar();
+        void putpixel(SDL_Surface*, int,int);
+};
+
+class Plantilla{
+    private:
+        int mapa[10][10];
+    public:
+        void cargar_plantilla();
+        void poner_en_lienzo(Lienzo);
+};
+
+class Boton{
+    private:
+        char tecla;
+    public:
+        cargarBoton();
+};
+
+class Ventana{
+    private:
+    public:
+};
+
+// esta es la funcion que dibuja en la pantalla
+void Dibujo::putpixel(SDL_Surface *screen, int x, int y)
+{   
+    x -= x%10;
+    y -= y%10;
+
+    Uint32 px_amarillo, px_negro;
+
+    // esto crea un de un pixel amarillo
+    px_amarillo = SDL_MapRGB(screen->format, 0xff, 0xff, 0x00);
+
+    // ese pixel despues es copiado en las zonas que se quieran pintar
+    px_negro = SDL_MapRGB(screen->format, 0x00, 0x00, 0x00);
+
+    // crea un rectangulo de 10x10 con una determinada cordenada
+    SDL_Rect rectangulo = {x, y, 10, 10};
+
+    // llena el rectangulo anterior con el pixel dado
+    SDL_FillRect(screen, &rectangulo, px_amarillo);
+
+    /// acutalizar la pantalla en la zona recien pintada
+    SDL_UpdateRect(screen, x, y, 10, 10);
 }
 
 void Lienzo::mostrar_mapa()
 {
-    for (int i = 0; i < 49; i++)
-    {
-        for (int j=0; j<65; j++)
-        {
+    for (int i = 0; i < 49; i++){
+        for (int j=0; j<65; j++){
             if (mapa[i][j] ==0)
                 cout <<" ";
-            else
-            {
+            
+            else{
                 cout << "#";
             }
         }
