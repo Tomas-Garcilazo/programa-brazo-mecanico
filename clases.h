@@ -1,44 +1,6 @@
 #ifndef CLASES_H_INCLUDED
 #define CLASES_H_INCLUDED
 
-class Lienzo{
-    private:
-        int mapa[49][65];
-        int width;
-        int height;        
-    public:
-        Lienzo(int new_width, int new_height){
-            width = new_width;
-            height = new_height;
-        }
-        void guardar_mapa(){
-            FILE *f;
-            f = fopen("archivo_matriz.dat", "wb");
-            fwrite(mapa, sizeof(int)*65*49, 1, f);
-        }
-        void mostrar_mapa();
-        void marcar_mapa(int y, int x, int valor)
-        {   
-            x = (int) x/10;
-            y = (int) y/10;
-
-            if (x >= width || y >= height || x < 0 || y < 0){
-                return;
-            }
-
-            mapa[y][x] = valor;
-        }
-        void Poner_Mapa_0();
-        int* get_mapa()
-        {
-            return (int *) mapa;
-        }
-        int get_valor(int y, int x)
-        {
-            return mapa[y][x];
-        }
-};
-
 class Dibujo{
     private:
         int *lista_de_trazos; /// esto va a ser un vector que se va a modificar con malloc
@@ -55,8 +17,7 @@ class Dibujo{
 };
 
 // esta es la funcion que dibuja en la pantalla
-void Dibujo::putpixel(int x, int y)
-{   
+void Dibujo::putpixel(int x, int y){   
     x -= x%10;
     y -= y%10;
     if (x >= 640 || y >= 480 || x < 0 || y < 0){
@@ -80,13 +41,34 @@ void Dibujo::putpixel(int x, int y)
     SDL_UpdateRect(screen, x, y, 10, 10);
 }
 
-void Lienzo::mostrar_mapa()
-{
+class Lienzo{
+    private:
+        int mapa[49][65];
+        int width;
+        int height;        
+    public:
+        Lienzo(int new_width, int new_height){
+            width = new_width;
+            height = new_height;
+        }
+        void guardar_mapa(){
+            FILE *f;
+            f = fopen("archivo_matriz.dat", "wb");
+            fwrite(mapa, sizeof(int)*65*49, 1, f);
+        }
+        void mostrar_mapa();
+        void marcar_mapa(int y, int x, int valor);
+        void Poner_Mapa_0();
+        int* get_mapa(){return (int *) mapa;}
+        int get_valor(int y, int x){return mapa[y][x];
+        }
+};
+
+void Lienzo::mostrar_mapa(){
     for (int i = 0; i < 49; i++){
         for (int j=0; j<65; j++){
             if (mapa[i][j] ==0)
                 cout <<" ";
-            
             else{
                 cout << "#";
             }
@@ -95,12 +77,21 @@ void Lienzo::mostrar_mapa()
     }
 }
 
-void Lienzo::Poner_Mapa_0()
-{
+void Lienzo::marcar_mapa(int y, int x, int valor){
+    x = (int) x/10;
+    y = (int) y/10;
+    if (x >= width || y >= height || x < 0 || y < 0){
+        return;
+    }
+    mapa[y][x] = valor;
+}
+
+void Lienzo::Poner_Mapa_0(){
     for (int i = 0; i < 49; i++){
         for (int j=0; j<65; j++){
             mapa[i][j] = 0;
         }
     }
 }
+
 #endif // CLASES_H_INCLUDED
