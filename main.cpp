@@ -189,9 +189,7 @@ int main ( int argc, char** argv ){
     }
 
     lienzo_obj.mostrar_mapa();
-    FILE *f;
-    f = fopen("archivo_matriz.dat", "wb");
-    fwrite(lienzo_obj.get_mapa(), sizeof(int)*65*49, 1, f);
+    lienzo_obj.guardar_mapa();
 
     /// escribe las instrucciones que se le pasan al brazo
     escribir_codigo_final();

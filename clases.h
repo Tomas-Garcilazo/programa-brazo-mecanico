@@ -11,7 +11,11 @@ class Lienzo{
             width = new_width;
             height = new_height;
         }
-        void guardar_mapa();
+        void guardar_mapa(){
+            FILE *f;
+            f = fopen("archivo_matriz.dat", "wb");
+            fwrite(mapa, sizeof(int)*65*49, 1, f);
+        }
         void mostrar_mapa();
         void marcar_mapa(int y, int x, int valor)
         {   
