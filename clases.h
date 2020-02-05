@@ -18,14 +18,11 @@ class Dibujo{
         void dibujar_nuevo();
         void dibujar();
         void borrar();
-        void putpixel(int, int);
+        void putpixel(int, int, int);
 };
 
 // esta es la funcion que dibuja en la pantalla
-void Dibujo::putpixel(int x, int y){   
-    /// color_elegido va a ir por parametro, pero hay actualizar todas las llamadas
-    int color_elegido = 1;
-
+void Dibujo::putpixel(int x, int y, int color_elegido = 1){
     x -= x%10;
     y -= y%10;
     if (x >= 640 || y >= 480 || x < 0 || y < 0){

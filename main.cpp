@@ -121,16 +121,9 @@ int main ( int argc, char** argv ){
                             case BORRAR_LIBRE:
                                 if(buttonState){
                                     SDL_GetMouseState(&x, &y);
-                                    if (x > -1 && x <SCREEN_W && y > -1 && y <SCREEN_H){
-                                        /// ESTO HAY QUE CAMBIARLO, QUE USE LA FUNCION PUTPIXEL
-                                        /// PERO PERIMERO HAY QUE PONERLE UN SWITCH CON EL COLOR A LA FUNCION
-                                        Uint32 negro;
-                                        negro = SDL_MapRGB(screen->format, 0x00, 0x00, 0x00);
-                                        SDL_Rect rectangulo_negro = {x-(x%10), y-(y%10), 10, 10};
-                                        SDL_FillRect(screen, &rectangulo_negro, negro);
-                                        SDL_UpdateRect(screen, x-(x%10), y-(y%10), 10, 10); /// acutalizar la pantalla (si no se actualiza no se ven los cambios)
-                                        lienzo_obj.marcar_mapa(y, x, 0);
-                                    }
+
+                                    dibujo_obj.putpixel(x, y, 0);
+                                    lienzo_obj.marcar_mapa(y, x, 0);
                                 }
                                 break;
 
