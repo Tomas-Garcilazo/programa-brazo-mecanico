@@ -4,38 +4,38 @@
 class Dibujo{
     private:
         int *lista_de_trazos; /// esto va a ser un vector que se va a modificar con malloc
-        Lienzo *obj_lienzo;
         SDL_Surface *screen;
+        Uint32 colores[2];
+
     public:
+        Dibujo(SDL_Surface *new_screen){
+            screen = new_screen;
+            // esto crea un de un pixel negro y uno amarillo
+            // despues son copiados en las zonas de 10x10 que se quieran pintar
+            colores[0] = SDL_MapRGB(screen->format, 0x00, 0x00, 0x00); // negro
+            colores[1] = SDL_MapRGB(screen->format, 0xff, 0xff, 0x00); // amarillo
+        }
         void dibujar_nuevo();
         void dibujar();
         void borrar();
         void putpixel(int, int);
-        void set_screen(SDL_Surface *new_screen){
-            screen = new_screen;
-        }
 };
 
 // esta es la funcion que dibuja en la pantalla
 void Dibujo::putpixel(int x, int y){   
+    /// color_elegido va a ir por parametro, pero hay actualizar todas las llamadas
+    int color_elegido = 1;
+
     x -= x%10;
     y -= y%10;
     if (x >= 640 || y >= 480 || x < 0 || y < 0){
         return;
     }
-    Uint32 px_amarillo, px_negro;
-
-    // esto crea un de un pixel amarillo
-    px_amarillo = SDL_MapRGB(screen->format, 0xff, 0xff, 0x00);
-
-    // ese pixel despues es copiado en las zonas que se quieran pintar
-    px_negro = SDL_MapRGB(screen->format, 0x00, 0x00, 0x00);
-
     // crea un rectangulo de 10x10 con una determinada cordenada
     SDL_Rect rectangulo = {x, y, 10, 10};
 
-    // llena el rectangulo anterior con el pixel dado
-    SDL_FillRect(screen, &rectangulo, px_amarillo);
+    // llena el rectangulo anterior con los pixeles del color elegido
+    SDL_FillRect(screen, &rectangulo, colores[color_elegido]);
 
     /// acutalizar la pantalla en la zona recien pintada
     SDL_UpdateRect(screen, x, y, 10, 10);
