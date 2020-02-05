@@ -15,9 +15,6 @@ class Dibujo{
             colores[0] = SDL_MapRGB(screen->format, 0x00, 0x00, 0x00); // negro
             colores[1] = SDL_MapRGB(screen->format, 0xff, 0xff, 0x00); // amarillo
         }
-        void dibujar_nuevo();
-        void dibujar();
-        void borrar();
         void putpixel(int, int, int);
 };
 
@@ -28,12 +25,11 @@ void Dibujo::putpixel(int x, int y, int color_elegido = 1){
     if (x >= 640 || y >= 480 || x < 0 || y < 0){
         return;
     }
+
     // crea un rectangulo de 10x10 con una determinada cordenada
     SDL_Rect rectangulo = {x, y, 10, 10};
-
     // llena el rectangulo anterior con los pixeles del color elegido
     SDL_FillRect(screen, &rectangulo, colores[color_elegido]);
-
     /// acutalizar la pantalla en la zona recien pintada
     SDL_UpdateRect(screen, x, y, 10, 10);
 }
