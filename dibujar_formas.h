@@ -1,7 +1,7 @@
 #ifndef DIBUJAR_FORMAS_H_INCLUDED
 #define DIBUJAR_FORMAS_H_INCLUDED
 
-void dibujar_cuadrado(int x1, int y1, int x2, int y2, Dibujo dibujo_obj, SDL_Surface* screen, Lienzo *lienzo_obj){
+void dibujar_cuadrado(int x1, int y1, int x2, int y2, Dibujo *dibujo_obj, Lienzo *lienzo_obj){
 int maxX, maxY, minX, minY, x, y;
 
 if(x1<x2){
@@ -25,28 +25,28 @@ else {
 for(int i=maxX;i>minX;i--){
     x= i;
     y=maxY;
-    dibujo_obj.putpixel(screen, x, y);
+    dibujo_obj->putpixel(x, y);
     lienzo_obj->marcar_mapa(y, x, 1);
 
     x= i;
     y= minY;
-    dibujo_obj.putpixel(screen, x, y);
+    dibujo_obj->putpixel(x, y);
     lienzo_obj->marcar_mapa(y, x, 1);
 }
 for(int i=maxY;i>minY;i--){
 
     x= maxX;
     y=i;
-    dibujo_obj.putpixel(screen, x, y);
+    dibujo_obj->putpixel(x, y);
     lienzo_obj->marcar_mapa(y, x, 1);
 
     x= minX;
     y=i;
-    dibujo_obj.putpixel(screen, x, y);
+    dibujo_obj->putpixel(x, y);
     lienzo_obj->marcar_mapa( y, x, 1);
 }}
 
-void dibujar_linea(int x1, int y1, int x2, int y2, Dibujo dibujo_obj, SDL_Surface* screen, Lienzo *lienzo_obj){
+void dibujar_linea(int x1, int y1, int x2, int y2, Dibujo *dibujo_obj, Lienzo *lienzo_obj){
 
 int maxX, maxY, minX, minY, x, y;
 
@@ -77,7 +77,7 @@ if(diferenciaX>diferenciaY)
         x = i;
         y = maxY;
 
-        dibujo_obj.putpixel(screen, x, y);
+        dibujo_obj->putpixel(x, y);
         lienzo_obj->marcar_mapa(y, x, 1);
     }
 }
@@ -87,13 +87,13 @@ else
         x = maxX;
         y = i;
 
-        dibujo_obj.putpixel(screen, x, y);
+        dibujo_obj->putpixel(x, y);
         lienzo_obj->marcar_mapa(y, x, 1);
     }
 }
 
 }
-void dibujar_circulo(int x1, int y1, int x2, int y2, Dibujo dibujo_obj, SDL_Surface* screen, Lienzo *lienzo_obj){
+void dibujar_circulo(int x1, int y1, int x2, int y2, Dibujo *dibujo_obj, Lienzo *lienzo_obj){
 
 x1 -= (x1%10);
 y1 -= (y1%10);
@@ -141,7 +141,7 @@ for(int j=0;j<=diametro; j+=10){
                     int x = j+min_x;
                     int y = i+min_y;
 
-                    dibujo_obj.putpixel(screen, x, y);
+                    dibujo_obj->putpixel(x, y);
                     lienzo_obj->marcar_mapa(y, x, 1);
                 }
             }
@@ -150,7 +150,7 @@ for(int j=0;j<=diametro; j+=10){
 }
 }
 
-void dibujar_rombo(int x1, int y1, int x2, int y2, Dibujo dibujo_obj, SDL_Surface* screen, Lienzo *lienzo_obj){
+void dibujar_rombo(int x1, int y1, int x2, int y2, Dibujo *dibujo_obj, Lienzo *lienzo_obj){
 
 x1 -= x1%10;
 y1 -= y1%10;
@@ -191,20 +191,20 @@ for (int j = 0; j <= radio; j+= 10) {
 
     int x_real = j + min_x;
     int y_real = j + min_y + radio;
-    dibujo_obj.putpixel(screen, x_real, y_real);
+    dibujo_obj->putpixel(x_real, y_real);
     lienzo_obj->marcar_mapa(y_real,  x_real, 1);
 
     y_real = -j + min_y + radio;
-    dibujo_obj.putpixel(screen, x_real, y_real);
+    dibujo_obj->putpixel(x_real, y_real);
     lienzo_obj->marcar_mapa(y_real, x_real, 1);
 
     x_real = j + min_x + radio;
     y_real = j + min_y;
-    dibujo_obj.putpixel(screen, x_real, y_real);
+    dibujo_obj->putpixel(x_real, y_real);
     lienzo_obj->marcar_mapa(y_real, x_real, 1);
 
     y_real = -j + min_y + radio*2;
-    dibujo_obj.putpixel(screen, x_real, y_real);
+    dibujo_obj->putpixel(x_real, y_real);
     lienzo_obj->marcar_mapa(y_real, x_real, 1);
 }
 

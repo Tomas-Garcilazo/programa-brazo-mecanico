@@ -15,7 +15,7 @@ int main ( int argc, char** argv ){
     int const SCREEN_W = 640, SCREEN_H = 480;
 
     Dibujo dibujo_obj;
-    Lienzo lienzo_obj;
+    Lienzo lienzo_obj(SCREEN_W/10, SCREEN_H/10);
 
     int estado_clic = 0;
 
@@ -41,13 +41,14 @@ int main ( int argc, char** argv ){
     bool buttonState  = false;
     atexit(SDL_Quit);
 
-    /// crea una nueva ventana
-    SDL_Surface* screen = SDL_SetVideoMode(SCREEN_W + bmp->w, SCREEN_H, 16, SDL_HWSURFACE|SDL_DOUBLEBUF);
-
     /// cargar imagen
-    SDL_Surface* bmp = SDL_LoadBMP("imagenes/botones.bmp");
+    SDL_Surface *bmp = SDL_LoadBMP("imagenes/botones.bmp");
 
-    /// rectangulo que va a contener la posicion donde se va a mostrar la imagen 
+    /// crea la ventana principal
+    SDL_Surface *screen = SDL_SetVideoMode(SCREEN_W + bmp->w, SCREEN_H, 16, SDL_HWSURFACE|SDL_DOUBLEBUF);
+    dibujo_obj.set_screen(screen);
+
+    /// rectangulo que va a contener la posicion donde se va a mostrar la imagen
     SDL_Rect rectangulo;
 
     rectangulo.x = screen->w - bmp->w;
@@ -110,7 +111,7 @@ int main ( int argc, char** argv ){
                                 if(buttonState){
                                     SDL_GetMouseState(&x, &y);
                                     if (x > -1 && x <SCREEN_W && y > -1 && y <SCREEN_H){
-                                        dibujo_obj.putpixel(screen, x, y);
+                                        dibujo_obj.putpixel(x, y);
                                         lienzo_obj.marcar_mapa(y, x, 1);
                                     }
                                 }
@@ -139,7 +140,7 @@ int main ( int argc, char** argv ){
                                 else if (estado_clic == 2){
 
                                     SDL_GetMouseState(&x_f, &y_f);
-                                    dibujar_cuadrado(x, y, x_f, y_f, dibujo_obj, screen, &lienzo_obj);
+                                    dibujar_cuadrado(x, y, x_f, y_f, &dibujo_obj, &lienzo_obj);
                                     estado_clic = 0;
                                 }
                                 break;
@@ -152,7 +153,7 @@ int main ( int argc, char** argv ){
                                 else if(estado_clic==2)
                                 {
                                     SDL_GetMouseState(&x_f, &y_f);
-                                    dibujar_linea(x,y, x_f, y_f, dibujo_obj, screen, &lienzo_obj);
+                                    dibujar_linea(x,y, x_f, y_f, &dibujo_obj, &lienzo_obj);
                                     estado_clic = 0;
 
                                 }
@@ -164,7 +165,7 @@ int main ( int argc, char** argv ){
                                 }
                                 else if (estado_clic == 2){
                                     SDL_GetMouseState(&x_f, &y_f);
-                                    dibujar_circulo(x, y, x_f, y_f, dibujo_obj, screen, &lienzo_obj);
+                                    dibujar_circulo(x, y, x_f, y_f, &dibujo_obj, &lienzo_obj);
                                     estado_clic = 0;
                                 }
                                 break;
@@ -175,7 +176,7 @@ int main ( int argc, char** argv ){
                                 }
                                 else if (estado_clic == 2){
                                     SDL_GetMouseState(&x_f, &y_f);
-                                    dibujar_rombo(x, y, x_f, y_f, dibujo_obj, screen, &lienzo_obj);
+                                    dibujar_rombo(x, y, x_f, y_f, &dibujo_obj, &lienzo_obj);
                                     estado_clic = 0;
                                 }
                                 break;

@@ -4,7 +4,13 @@
 class Lienzo{
     private:
         int mapa[49][65];
+        int width;
+        int height;        
     public:
+        Lienzo(int new_width, int new_height){
+            width = new_width;
+            height = new_height;
+        }
         void guardar_mapa();
         void mostrar_mapa();
         void marcar_mapa(int y, int x, int valor)
@@ -12,7 +18,7 @@ class Lienzo{
             x = (int) x/10;
             y = (int) y/10;
 
-            if (x >= 64 || y >= 48 || x < 0 || y < 0){
+            if (x >= width || y >= height || x < 0 || y < 0){
                 return;
             }
 
@@ -33,35 +39,19 @@ class Dibujo{
     private:
         int *lista_de_trazos; /// esto va a ser un vector que se va a modificar con malloc
         Lienzo *obj_lienzo;
+        SDL_Surface *screen;
     public:
         void dibujar_nuevo();
         void dibujar();
         void borrar();
-        void putpixel(SDL_Surface*, int,int);
-};
-
-class Plantilla{
-    private:
-        int mapa[10][10];
-    public:
-        void cargar_plantilla();
-        void poner_en_lienzo(Lienzo);
-};
-
-class Boton{
-    private:
-        char tecla;
-    public:
-        cargarBoton();
-};
-
-class Ventana{
-    private:
-    public:
+        void putpixel(int, int);
+        void set_screen(SDL_Surface *new_screen){
+            screen = new_screen;
+        }
 };
 
 // esta es la funcion que dibuja en la pantalla
-void Dibujo::putpixel(SDL_Surface *screen, int x, int y)
+void Dibujo::putpixel(int x, int y)
 {   
     x -= x%10;
     y -= y%10;
@@ -103,10 +93,8 @@ void Lienzo::mostrar_mapa()
 
 void Lienzo::Poner_Mapa_0()
 {
-    for (int i = 0; i < 49; i++)
-    {
-        for (int j=0; j<65; j++)
-        {
+    for (int i = 0; i < 49; i++){
+        for (int j=0; j<65; j++){
             mapa[i][j] = 0;
         }
     }
