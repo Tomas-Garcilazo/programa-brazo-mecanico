@@ -48,6 +48,7 @@
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="main.cpp" />
+		<Unit filename="programa_grafico.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />
