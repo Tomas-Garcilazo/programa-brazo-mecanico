@@ -1,10 +1,10 @@
 void escribir_base(){
-	FILE *base = fopen("base.txt", "r");
+	FILE *base = fopen("base.c", "r");
 	fseek(base, 0, 2);
 
-	int tamanio_archivo = ftell(base)/sizeof(char)-13;
+	int tamanio_archivo = ftell(base)/sizeof(char);
 
-	char *texto = new char[tamanio_archivo];
+	char *texto = new char[tamanio_archivo+1];
 
 	fseek(base, 0, 0);
 	fread(texto, tamanio_archivo, 1, base);
@@ -23,20 +23,25 @@ void escribir_instrucciones(){
 	int mapa[49][65];
     cargar_matriz(mapa);
     /// escribir el codigo segun los valores de la matriz
-	for (int y = 0; y < 49; y++){
-		for (int x = 0; x < 65; x++){
-				if(mapa[y][x] == 1){
-				cout << "\t//y: " << y << " x: " << x << endl;
+    int tam = 0;
+    cout << "const int vec[][2] = {";
+	for (int x = 0; x < 65; x++){
+		for (int y = 0; y < 49; y++){
+			if(mapa[y][x] == 1){
+				//cout << "\t//y: " << y << " x: " << x << endl;
+				//cout << "{" << y << ", " << x << "}";
+				cout << x << ", " << y << ", ";
+				tam++;
 			}
 		}
 	}
-    cout << "}";
-
+	cout << "};" << endl;
+	cout << "const int TAM = " << tam <<";" << endl << endl << endl;
 }
 void escribir_codigo_final(){
 	freopen("codigo_generado/codigo_generado.ino","w", stdout);
-	escribir_base();
 	escribir_instrucciones();
+	escribir_base();
 	fclose (stdout);
 	freopen("CON","w",stdout);
 }
