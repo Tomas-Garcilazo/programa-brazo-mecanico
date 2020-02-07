@@ -8,6 +8,8 @@ class Dibujo{
         Uint32 colores[2];
 
     public:
+        void cargar_Dibujo(int *mapa);
+
         Dibujo(SDL_Surface *new_screen){
             screen = new_screen;
             // esto crea un de un pixel negro y uno amarillo
@@ -34,11 +36,27 @@ void Dibujo::putpixel(int x, int y, int color_elegido = 1){
     SDL_UpdateRect(screen, x, y, 10, 10);
 }
 
+void Dibujo::cargar_Dibujo(int *mapa){
+int x=0;
+int y=0;
+    for (int i = 0; i < 49; i++){
+        for (int j=0; j<65; j++){
+            if (mapa[x] ==0){
+                this->putpixel(10*x, y*10, 0);
+            }
+            else{
+                this->putpixel(10*x, y*10);
+            }
+            x++;
+        }
+    }
+}
+
 class Lienzo{
     private:
         int mapa[49][65];
         int width;
-        int height;        
+        int height;
     public:
         Lienzo(int new_width, int new_height){
             width = new_width;
@@ -49,6 +67,13 @@ class Lienzo{
             f = fopen("archivo_matriz.dat", "wb");
             fwrite(mapa, sizeof(int)*65*49, 1, f);
         }
+        cargar(){
+        FILE *p;
+        p=fopen("archivo_matriz.dat","rb");
+            fread(mapa, sizeof(int)*65*49, 1, p);
+        fclose(p);
+        }
+
         void mostrar_mapa();
         void marcar_mapa(int y, int x, int valor);
         void Poner_Mapa_0();

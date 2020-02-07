@@ -1,12 +1,12 @@
 #ifndef PROGRAMA_GRAFICO_H_INCLUDED
 #define PROGRAMA_GRAFICO_H_INCLUDED
 
-void iniciar_programa_grafico(){
+void iniciar_programa_grafico(bool nuevo){
 	/// tamaño constante de la pantalla
     int const SCREEN_W = 640, SCREEN_H = 480;
 
     Lienzo lienzo_obj(SCREEN_W/10, SCREEN_H/10);
-    lienzo_obj.Poner_Mapa_0();
+
 
     int estado_clic = 0;
 
@@ -36,7 +36,7 @@ void iniciar_programa_grafico(){
 
     /// crea la ventana principal
     SDL_Surface *screen = SDL_SetVideoMode(SCREEN_W + bmp->w, SCREEN_H, 16, SDL_HWSURFACE|SDL_DOUBLEBUF);
-    
+
     Dibujo dibujo_obj(screen);
 
 
@@ -47,6 +47,14 @@ void iniciar_programa_grafico(){
     rectangulo.y = 0;
 
     SDL_BlitSurface(bmp, 0, screen, &rectangulo);
+
+    if(nuevo==1){
+    lienzo_obj.Poner_Mapa_0();
+    }
+    else{
+        lienzo_obj.cargar();
+        dibujo_obj.cargar_Dibujo(lienzo_obj.get_mapa());
+    }
 
     /// actualizar pantalla
     SDL_Flip(screen);

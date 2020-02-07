@@ -18,24 +18,27 @@ void activar_consola(){
 	/*********************************************/
 }
 int main ( int argc, char** argv ){
+    int numero=1;
 	activar_consola();
 
 
-	/* ACORDATE QUE EL PROGRAMA GRAFICO ES UN LOOP, 
-	OSEA QUE TODO LO QUE ESTA ABAJO DE ESTA FUNCION NO 
+	/* ACORDATE QUE EL PROGRAMA GRAFICO ES UN LOOP,
+	OSEA QUE TODO LO QUE ESTA ABAJO DE ESTA FUNCION NO
 	VA A FUNCAR HASTA QUE CIERRES EL PROGRAMA*/
-	iniciar_programa_grafico();
+	do{
+	iniciar_programa_grafico(false);
+	activar_consola();
+    printf("Ingrese 0 para cerrar o Otro numero para continuar : ") ;
+    ///SDL_Surface *screen = SDL_SetVideoMode(200,300 , 16, SDL_HWSURFACE|SDL_DOUBLEBUF);
+	 numero = -1;
+	cin >> numero;
+	}while(numero!=0);
 
 	// esto borralo si queres, solo era para mostrar que la consola funciona
-	cout << "lalala: ";
-	int numero = -1;
-	cin >> numero;
-	cout << "la" << endl;
-	cin >> numero;
-	cin >> numero;
+
 
 	// el programa podes abrirlo cuando quieras, cuantas veces quieras
 	// no probe si tiene bugs, pero el dibujo parece funcar
-	iniciar_programa_grafico();
+
     return 0;
 }
