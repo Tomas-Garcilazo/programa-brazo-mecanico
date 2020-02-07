@@ -172,7 +172,15 @@ void iniciar_programa_grafico(){
                         estado_clic = 0;
 
     }
+
+    // ajusta la pantalla y hace el screenshot
+    screen->w = 640;
+    screen->h = 480;
+    SDL_SaveBMP(screen, "imagen.bmp");
+
+
     SDL_Quit(); // sale de sdl
+
 
     //lienzo_obj.mostrar_mapa();
     lienzo_obj.guardar_mapa();
