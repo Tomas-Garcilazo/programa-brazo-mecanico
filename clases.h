@@ -38,17 +38,14 @@ void Dibujo::putpixel(int x, int y, int color_elegido = 1){
 
 void Dibujo::cargar_Dibujo(int *mapa){
 int x=0;
-int y=0;
-    for (int i = 0; i < 49; i++){
-        for (int j=0; j<65; j++){
-            if (mapa[x] ==0){
-                this->putpixel(10*x, y*10, 0);
-            }
-            else{
-                this->putpixel(10*x, y*10);
+    for (int i = 0; i <48; i++){
+        for (int j=0; j<64; j++){
+            if(*(mapa+x) == 1){
+                this->putpixel(10*j, i*10);
             }
             x++;
         }
+        x++;
     }
 }
 
@@ -66,8 +63,9 @@ class Lienzo{
             FILE *f;
             f = fopen("archivo_matriz.dat", "wb");
             fwrite(mapa, sizeof(int)*65*49, 1, f);
+            fclose(f);
         }
-        cargar(){
+        void cargar(){
         FILE *p;
         p=fopen("archivo_matriz.dat","rb");
             fread(mapa, sizeof(int)*65*49, 1, p);
